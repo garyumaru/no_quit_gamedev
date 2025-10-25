@@ -1,0 +1,120 @@
+/*
+ * Copyright (c) 2025 Garyumaru / Garyu Games
+ * 本コンテンツの著作権は制作者に帰属します。
+ * 詳細はプロジェクトルートの _TERMS_OF_USE.md をご確認ください。
+ */
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-container {
+    background-color: #8BC34A; /* 緑の地面 */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 20px;
+}
+
+.hole {
+    width: 80px;
+    height: 80px;
+    background-color: #000000; /* 穴の色: 黒 */
+    border-radius: 50%;
+    border: 5px solid #333;
+}
+
+.hole.mole {
+    background-color: #8B4513; /* モグラの色: 茶色 */
+    cursor: pointer;
+    position: relative; /* 目と鼻の位置の基準にする */
+    overflow: hidden; /* はみ出した部分を隠す */
+}
+
+/* モグラの目 (2つ) */
+.hole.mole::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    width: 8px;
+    height: 8px;
+    background-color: #2c3e50; /* 目の色 */
+    border-radius: 50%;
+    /* box-shadowで2つ目の目を描画 */
+    box-shadow: 25px 0 0 #2c3e50;
+    left: calc(50% - 4px - 12.5px); /* 中央に配置するための計算 */
+}
+
+/* モグラの鼻 */
+.hole.mole::before {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: calc(50% - 8px); /* 中央に配置 */
+    width: 16px;
+    height: 10px;
+    background-color: #e1b1b1; /* 鼻の色 */
+    border-radius: 40%;
+}
+
+.hole.bomb {
+    background-color: #ecf0f1; /* ドクロの白っぽい色 */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%; /* 頭蓋骨っぽい形 */
+}
+
+/* ドクロの目 */
+.hole.bomb::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    width: 15px;
+    height: 20px;
+    background-color: #2c3e50; /* 目の穴の色 */
+    border-radius: 40%;
+    box-shadow: 25px 0 0 #2c3e50;
+    left: calc(50% - 7.5px - 12.5px);
+}
+
+/* ドクロの鼻 */
+.hole.bomb::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: calc(50% - 5px);
+    width: 10px;
+    height: 10px;
+    background-color: #2c3e50;
+    /* clip-pathで三角形を作る */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+#score-board {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0; /* 上下のマージン調整 */
+}
+
+#start-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50; /* 緑 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

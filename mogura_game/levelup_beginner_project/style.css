@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) 2025 Garyumaru / Garyu Games
+ * 本コンテンツの著作権は制作者に帰属します。
+ * 詳細はプロジェクトルートの _TERMS_OF_USE.md をご確認ください。
+ */
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-container {
+    background-color: #8BC34A; /* 緑の地面 */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 20px;
+}
+
+.hole {
+    width: 80px;
+    height: 80px;
+    background-color: #000000; /* 穴の色: 黒 */
+    border-radius: 50%;
+    border: 5px solid #333;
+}
+
+.hole.mole {
+    background-color: #8B4513; /* モグラの色: 茶色 */
+    cursor: pointer;
+}
+
+#score-board {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0; /* 上下のマージン調整 */
+}
+
+#start-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50; /* 緑 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
